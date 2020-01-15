@@ -1,0 +1,30 @@
+{
+  "name": "nuxt",
+  "version": "1.0.0",
+  "description": "Hugh Blog | 前端博客",
+  "author": "hughhu",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build && npm start",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "pm2": "pm2 start npm --name 'nuxt' -- run build --watch"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "element-ui": "^2.4.11",
+    "html2canvas": "1.0.0-alpha.12",
+    "nuxt": "^2.10.1",
+    "qrcode": "^1.4.4",
+    "qs": "^6.9.1"
+  },
+  "devDependencies": {
+    "@nuxtjs/stylelint-module": "^3.1.0",
+    "node-sass": "^4.13.0",
+    "nodemon": "^2.0.2",
+    "sass-loader": "^8.0.0",
+    "stylelint": "^10.1.0"
+  }
+}
