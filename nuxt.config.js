@@ -92,10 +92,16 @@ export default {
     proxy: true,
   },
   proxy: {
-    '/uploads': {
-      target: 'https://huxiaojun.work',
+    '/wordpress': {
+      target: 'http://test.huxiaojun.work',
       pathRewrite: {
-        '^/uploads' : '/wp-content/uploads'
+        '^/wordpress' : '/wordpress'
+      }
+    },
+    '/wp-content': {
+      target: 'http://test.huxiaojun.work',
+      pathRewrite: {
+        '^/wp-content' : '/wordpress/wp-content'
       }
     }
   }

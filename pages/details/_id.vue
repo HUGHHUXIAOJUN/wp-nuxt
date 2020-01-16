@@ -90,11 +90,11 @@
     <!-- 作者信息 -->
     <div class="section author-introduct">
       <!-- 头像 -->
-      <img :src="detail.articleInfor.other.authorPic.indexOf('http')>-1?detail.articleInfor.other.authorPic:info.wp+detail.articleInfor.other.authorPic" class="phone-hide" width="100">
+      <img :src="detail.articleInfor.other.authorPic" class="phone-hide" width="100">
       <div class="right">
         <!-- 昵称 -->
         <div class="header">
-          <img :src="detail.articleInfor.other.authorPic.indexOf('http')>-1?detail.articleInfor.other.authorPic:info.wp+detail.articleInfor.other.authorPic" class="phone-show" width="25">
+          <img :src="detail.articleInfor.other.authorPic" class="phone-show" width="25">
           <p class="inline-block name">
             作者简介：<x-icon type="icon-about-f"></x-icon><span class="f-s-14px">{{ detail.articleInfor.author }}</span>
           </p>
@@ -212,7 +212,7 @@ export default {
 
     // 打赏数据
     this.rewardContent = {
-      thumbnail: this.detail.articleInfor.other.authorPic.indexOf('http') > -1 ? this.detail.articleInfor.other.authorPic:this.info.wp + this.detail.articleInfor.other.authorPic,
+      thumbnail: this.detail.articleInfor.other.authorPic,
       text: this.info.rewardText,
       alipay: this.info.alipay,
       wechatpay: this.info.wechatpay
@@ -225,7 +225,7 @@ export default {
       title: this.detail.title.rendered,
       summary: this.detail.articleInfor.summary,
       time: this.detail.date.replace(/\s.*/, ' '),
-      qrcodeLogo: this.detail.articleInfor.other.authorPic.replace(/(https?:\/\/([a-z\d-]\.?)+(:\d+)?)?(\/.*)/gi, `${this.info.wp}$4`),
+      qrcodeLogo: this.detail.articleInfor.other.authorPic.replace(/(https?:\/\/([a-z\d-]\.?)+(:\d+)?)?(\/.*)/gi, `$4`),
       qrcodeText: this.info.blogName,
       id: this.$route.params.id
     }

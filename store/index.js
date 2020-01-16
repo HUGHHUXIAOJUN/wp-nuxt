@@ -66,7 +66,7 @@ export const actions = {
   // 上传图片
   async uploadImage ({ commit, rootState }, { requestData, config = {} }) {
     try {
-      let { data } = await this.$axios.$post(`/wp-content/themes/${rootState.info.themeDir}/xm_upload.php`, requestData, {
+      let { data } = await this.$axios.$post(`/wordpress/wp-content/themes/${rootState.info.themeDir}/xm_upload.php`, requestData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           progress: false

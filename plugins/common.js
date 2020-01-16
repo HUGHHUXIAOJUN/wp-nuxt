@@ -32,7 +32,7 @@ try {
       
       $.ajax({url: "/live2d.js", dataType:"script", cache: true, success: function(res) {
           /* 可直接修改部分参数 */
-          live2d_settings['modelAPI'] = 'http://test.huxiaojun.work/wp-content/themes/service/api/';   // 自建 API 修改这里
+          live2d_settings['modelAPI'] = 'http://test.huxiaojun.work/wordpress/wp-content/themes/service/api/';   // 自建 API 修改这里
           live2d_settings['hitokotoAPI'] = "hitokoto.cn";  // 一言 API
           live2d_settings['modelId'] = 1;                  // 默认模型 ID
           live2d_settings['modelTexturesId'] = 29;          // 默认材质 ID
