@@ -20,7 +20,7 @@ export default {
     }
   },
   head: {
-    title: 'Hugh BLOG 前端博客',
+    title: 'Test Web',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -76,10 +76,11 @@ export default {
     scss: ['./assets/scss/variable.scss']
   },
   plugins: [
-    '@/plugins/axios','@/plugins/element-ui','@/plugins/message','@/plugins/icon',{src:'@/plugins/common',mode:'client'}
+    '@/plugins/axios','@/plugins/element-ui','@/plugins/message','@/plugins/icon',{src:'@/plugins/image',mode:'client'},{src:'@/plugins/common',mode:'client'}
   ],
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     '@nuxtjs/style-resources',
   ],
   build: {
@@ -87,4 +88,15 @@ export default {
     extractCSS: true,
     vendors: ['@nuxtjs/axios', 'element-ui'],
   },
+  axios: {
+    proxy: true,
+  },
+  proxy: {
+    '/uploads': {
+      target: 'https://huxiaojun.work',
+      pathRewrite: {
+        '^/uploads' : '/wp-content/uploads'
+      }
+    }
+  }
 }

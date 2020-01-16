@@ -79,11 +79,11 @@ export default {
   .content-details {
     line-height: 2;
 
-    /deep/ a {
+     /deep/ a {
       color: $color-theme;
     }
 
-    /deep/ h2{
+     /deep/ h2 {
       margin-top: 10px;
 
       .iconfont {
@@ -91,18 +91,18 @@ export default {
       }
     }
 
-    /deep/ h1,
-    /deep/ h2{
+     /deep/ h1,
+     /deep/ h2 {
       font-size: $font-size-large;
     }
 
-    /deep/ h4,
-    /deep/ h5,
-    /deep/ h6{
+     /deep/ h4,
+     /deep/ h5,
+     /deep/ h6 {
       font-size: $font-size-small;
     }
 
-    /deep/ img {
+     /deep/ img {
       height: auto !important;
       box-shadow: 0 0 10px #d2d2d2;
     }
@@ -110,18 +110,18 @@ export default {
 }
 
 .comment {
-  margin-top: $container-margin;
   padding: $container-padding;
+  margin-top: $container-margin;
   background: $color-white;
   border-radius: $border-radius;
 
   .comment-title {
-    margin-bottom: 10px;
     padding: 10px 0;
-    border-radius: $border-radius;
-    background: $color-sub-background;
+    margin-bottom: 10px;
     font-size: $font-size-large;
     text-align: center;
+    background: $color-sub-background;
+    border-radius: $border-radius;
   }
 }
 </style>

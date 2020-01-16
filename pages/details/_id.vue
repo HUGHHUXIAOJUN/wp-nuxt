@@ -230,7 +230,14 @@ export default {
       id: this.$route.params.id
     }
     // eslint-disable-next-line
-    process.browser && document.querySelectorAll('pre code').forEach(block => Prism.highlightElement(block))
+    if(process.browser){
+      document.querySelectorAll('pre code').forEach(block => Prism.highlightElement(block))
+      document.querySelectorAll('.content-details img').forEach(img=>{
+        img.setAttribute('preview',this.$route.path)
+        let alt=img.getAttribute('alt')
+        img.setAttribute('preview-text',alt);
+      })
+    }
   },
   beforeDestroy () {
     document.querySelectorAll('.prism-previewer').forEach(item => (item.style.display = 'none'))
@@ -280,8 +287,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .section {
-  margin-top: $container-margin;
   padding: $container-padding;
+  margin-top: $container-margin;
   background: $color-white;
   border-radius: $border-radius;
 }
@@ -300,11 +307,11 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
     padding-bottom: 5px;
-    border-bottom: 1px solid $color-border;
-    text-align: center;
+    margin-bottom: 10px;
     color: $color-sub-text;
+    text-align: center;
+    border-bottom: 1px solid $color-border;
 
     .iconfont {
       vertical-align: baseline;
@@ -316,11 +323,11 @@ export default {
     line-height: 2;
     word-break: break-all;
 
-    /deep/ a {
+     /deep/ a {
       color: $color-theme;
     }
 
-    /deep/ h2{
+     /deep/ h2 {
       margin-top: 10px;
 
       .iconfont {
@@ -328,20 +335,21 @@ export default {
       }
     }
 
-    /deep/ h1,
-    /deep/ h2{
+     /deep/ h1,
+     /deep/ h2 {
       font-size: $font-size-large;
     }
 
-    /deep/ h4,
-    /deep/ h5,
-    /deep/ h6{
+     /deep/ h4,
+     /deep/ h5,
+     /deep/ h6 {
       font-size: $font-size-small;
     }
 
-    /deep/ img {
+     /deep/ img {
       height: auto !important;
       box-shadow: 0 0 10px #d2d2d2;
+      cursor: zoom-in;
     }
   }
 }
@@ -374,8 +382,8 @@ export default {
   .iconfont-colour {
     width: 25px;
     height: 25px;
-    vertical-align: bottom;
     margin: 0 5px;
+    vertical-align: bottom;
   }
 }
 
@@ -410,8 +418,8 @@ export default {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 5px;
     padding-bottom: 5px;
+    margin-bottom: 5px;
     border-bottom: 1px solid $color-border;
   }
 
@@ -441,12 +449,12 @@ export default {
 
   .list {
     box-sizing: border-box;
+    padding: 5px;
     margin-right: 10px;
     margin-bottom: 5px;
-    padding: 5px;
-    border-radius: $border-radius;
-    background: $color-sub-background;
     font-size: $font-size-small;
+    background: $color-sub-background;
+    border-radius: $border-radius;
   }
 
   .iconfont-colour {
@@ -457,36 +465,37 @@ export default {
 }
 
 .comment-title {
-  margin-bottom: 10px;
   padding: 10px 0;
-  border-radius: $border-radius;
-  background: $color-sub-background;
+  margin-bottom: 10px;
   font-size: $font-size-large;
   text-align: center;
+  background: $color-sub-background;
+  border-radius: $border-radius;
 }
 
 // 代码高亮
-/deep/ div.code-toolbar {
+ /deep/ div.code-toolbar {
   overflow: hidden;
   width: 100%;
-  margin: 20px 0;
   padding-top: 30px;
+  margin: 20px 0;
   border-radius: $border-radius;
 
   pre {
     margin: 0;
     border: {
       width: 0 1px 1px;
-      style: solid;
       color: $color-main-background;
+
+      style: solid;
     }
   }
 
   code {
-    border: 0;
-    box-shadow: none;
-    background-size: 4em 4em;
     line-height: 2;
+    background-size: 4em 4em;
+    box-shadow: none;
+    border: 0;
   }
 
   .line-numbers .line-numbers-rows {
@@ -503,10 +512,10 @@ export default {
     opacity: 1;
 
     span {
+      color: #fff;
       background: none;
       box-shadow: none;
       border-radius: 0;
-      color: #fff;
     }
   }
 
@@ -519,8 +528,8 @@ export default {
 
     &:before {
       content: "\e7ae";
-      font-family: "iconfont";
       color: $color-white;
+      font-family: "iconfont";
     }
   }
 }

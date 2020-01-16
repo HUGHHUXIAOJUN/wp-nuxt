@@ -1,16 +1,8 @@
 document.body.addEventListener('touchstart', () => {})
 document.body.addEventListener('click', (e) => {
-  if(e.target.href)return
+  let TagArr=['A','IMG','INPUT','TEXTAREA'];
+  if (TagArr.indexOf(e.target.tagName)>-1) return
   const moveDotWrap = document.createElement('div')
-  // const expression = [
-  //   '/images/smilies/qq/huaixiao.gif',
-  //   '/images/smilies/qq/yinxian.gif',
-  //   '/images/smilies/qq/xieyanxiao.gif',
-  //   '/images/smilies/qq/xiaoku.gif',
-  //   '/images/smilies/qq/ciya.gif',
-  //   '/images/smilies/qq/wozuimei.gif',
-  //   '/images/smilies/qq/koubi.gif'
-  // ]
   const expression = [
     'http://q.huxiaojun.work/1.jpg',
     'http://q.huxiaojun.work/2.jpg',
@@ -28,7 +20,6 @@ document.body.addEventListener('click', (e) => {
   setTimeout(() => moveDotWrap.remove(), 1000)
 })
 try {
-  console.log('加载autoload') 
   $("<link>").attr({href: "/waifu.css", rel: "stylesheet", type: "text/css"}).appendTo('head');
   $("<script>").html(`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -41,10 +32,10 @@ try {
       
       $.ajax({url: "/live2d.js", dataType:"script", cache: true, success: function(res) {
           /* 可直接修改部分参数 */
-          live2d_settings['modelAPI'] = 'http://huxiaojun.work/wp-content/themes/service/api/';   // 自建 API 修改这里
+          live2d_settings['modelAPI'] = 'http://test.huxiaojun.work/wp-content/themes/service/api/';   // 自建 API 修改这里
           live2d_settings['hitokotoAPI'] = "hitokoto.cn";  // 一言 API
-          live2d_settings['modelId'] = 5;                  // 默认模型 ID
-          live2d_settings['modelTexturesId'] = 1;          // 默认材质 ID
+          live2d_settings['modelId'] = 1;                  // 默认模型 ID
+          live2d_settings['modelTexturesId'] = 29;          // 默认材质 ID
           live2d_settings['modelStorage'] = false;         // 不储存模型 ID
           
           /* 在 initModel 前添加 */

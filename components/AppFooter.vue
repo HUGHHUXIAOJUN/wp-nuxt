@@ -75,8 +75,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .footer {
-  margin-top: $container-margin;
-  padding: 30px 0;
+  padding: 10px 0;
   background: #2d3237;
   transition: .5s;
 
@@ -86,8 +85,8 @@ export default {
 
   &.is-error {
     position: absolute;
-    left: 0;
     bottom: 0;
+    left: 0;
     width: 100%;
   }
 }
@@ -96,21 +95,19 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #3b424a;
+  margin-bottom: 10px;
   line-height: 2;
-
+  border-bottom: 1px solid #3b424a;
   &:after {
     content: "";
     flex: auto;
   }
 
-  /deep/ a {
+   /deep/ a {
     display: block;
     margin-right: $container-margin;
-    font-size: $font-size-large;
     color: #9295a2;
+    font-size: $font-size-large;
 
     &:hover {
       color: $color-theme;
@@ -134,8 +131,8 @@ export default {
 
       a {
         padding-right: 15px;
-        border-right: 1px solid #666;
         font-size: $font-size-base;
+        border-right: 1px solid #666;
       }
 
       &:last-child {
@@ -157,11 +154,11 @@ export default {
 
 .back-top {
   position: fixed;
-  z-index: 99;
   right: 10px;
   bottom: 40px;
-  transition: .5s;
+  z-index: 99;
   transform: translateX(100px);
+  transition: .5s;
   cursor: pointer;
 
   &.show {
@@ -169,8 +166,8 @@ export default {
   }
 
   .iconfont {
-    font-size: 40px;
     color: $color-theme;
+    font-size: 40px;
   }
 }
 

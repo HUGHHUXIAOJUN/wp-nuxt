@@ -3,15 +3,21 @@
 @import "./class.scss";
 @font-face {
   font-family: "play";
+
   src: url(../font/PlayRegular.woff.ttf);
 }
 //鼠标样式
-html{cursor:url(http://q.huxiaojun.work/web_cursor.cur),auto;}
-a,a:visited{cursor:url(http://q.huxiaojun.work/web_cursor_link.cur),auto;}
+html {
+  cursor: url(http://q.huxiaojun.work/web_cursor.cur),auto;
+}
+a,
+a:visited {
+  cursor: url(http://q.huxiaojun.work/web_cursor_link.cur),auto;
+}
 // 文字选中颜色
 ::selection {
-  background: $color-theme;
   color: $color-white;
+  background: $color-theme;
 }
 
 // 滚动条颜色
@@ -28,35 +34,49 @@ a,a:visited{cursor:url(http://q.huxiaojun.work/web_cursor_link.cur),auto;}
 //     background: transparent;
 //   }
 // }
-
+//图片预览
+.pswp {
+  z-index: 9999;
+  .pswp__bg {
+    opacity: .6 !important;
+  }
+  &.pswp--zoom-allowed {
+    .pswp__img {
+      cursor: zoom-out;
+    }
+  }
+}
+img {
+  object-fit: cover;
+}
 ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
   background-color: $color-theme;
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+  border-radius: 10px;
 }
 
 html,
 body {
   &.h-f-100 {
-    height: 100%;
     overflow: hidden;
+    height: 100%;
   }
 }
 
 body {
   overflow-x: hidden;
   width: 100%;
-  background-color: $color-main-background;
+  color: $color-main-text;
   font: $font-size-base "play", PingFangSC-Regular,Microsoft Yahei;
   line-height: $line-height;
-  color: $color-main-text;
+  background-color: $color-main-background;
 }
 
 // 表情
 .wp-smiley {
   width: 20px !important;
-  height: auto !important;
   max-width: none !important;
+  height: auto !important;
   max-height: none !important;
   box-shadow: none !important;
 }
@@ -68,8 +88,8 @@ body {
   z-index: -1;
   width: 100%;
   height: 100%;
-  opacity: 0;
   background: $color-mask;
+  opacity: 0;
 
   &.is-show-menu {
     z-index: $z-index;
@@ -79,18 +99,18 @@ body {
 
 // 侧边栏
 .sidebar-list {
-  margin-top: $container-margin;
   padding: 10px;
-  border-radius: $border-radius;
+  margin-top: $container-margin;
   background: $color-white;
+  border-radius: $border-radius;
 
   &:first-of-type {
     margin-top: 0;
   }
 
   .header {
-    margin-bottom: 5px;
     padding-bottom: 5px;
+    margin-bottom: 5px;
     border-bottom: 1px solid $color-border;
 
     p {
@@ -128,8 +148,8 @@ body {
         .thumbnail {
           transform: rotate(666turn);
           transition-delay: 1s;
-          transition-property: all;
           transition-duration: 59s;
+          transition-property: all;
           transition-timing-function: cubic-bezier(.34, 0, .84, 1);
         }
       }
@@ -148,12 +168,12 @@ body {
       width: 50px;
       height: 50px;
       margin-right: 10px;
-      border-radius: $border-radius;
-      font-size: 28px;
-      text-align: center;
-      line-height: 50px;
-      text-transform: uppercase;
       color: #fff;
+      font-size: 28px;
+      line-height: 50px;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: $border-radius;
     }
 
     .author {
@@ -162,10 +182,10 @@ body {
     }
 
     .comment-text {
+      @include ellipsisMultiline(2, $line-height, $font-size-small);
       max-height: 34px;
       margin: 3px 0;
       font-size: $font-size-small;
-      @include ellipsisMultiline(2, $line-height, $font-size-small);
     }
 
     .title {
@@ -207,8 +227,8 @@ body {
     }
 
     .list {
-      margin: 10px 5px 0 0;
       padding: 3px 6px;
+      margin: 10px 5px 0 0;
       border-radius: $border-radius;
 
       a {
@@ -280,8 +300,8 @@ body {
 
       &.active,
       &:hover {
-        background: none;
         color: $color-theme;
+        background: none;
       }
     }
 
@@ -296,17 +316,17 @@ body {
 .article-list-wrap {
   //margin-top: $container-margin;
   padding: $container-padding;
-  border-radius: $border-radius;
   background: $color-white;
+  border-radius: $border-radius;
 
   .header {
     padding-bottom: $container-padding;
-    border-bottom: 1px solid $color-main-background;
     font-size: $font-size-large;
+    border-bottom: 1px solid $color-main-background;
   }
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
   .article-list-wrap {
     margin-top: $container-margin;
   }
@@ -326,7 +346,7 @@ body {
     position: absolute;
     bottom: -1px;
     left: 0;
-    width: 0px;
+    width: 0;
     height: 1px;
     background: $color-theme;
     transition: .4s;
@@ -351,22 +371,21 @@ body {
     width: 260px;
     height: 145px;
     border-radius: $border-radius;
-    transition: 0.5s;
+    transition: .5s;
   }
 
   // 列表内容
   .list-content {
-    flex: 1;
     position: relative;
+    flex: 1;
     margin-left: 15px;
   }
 
   // 标题
   .title {
+    @extend %ellipsis;
     margin-bottom: 10px;
     font-size: 18px;
-    @extend %ellipsis;
-
     a {
       color: #333;
 
@@ -377,23 +396,24 @@ body {
 
     .classify {
       position: relative;
-      margin-right: 10px;
       padding: 3px 5px;
+      margin-right: 10px;
+      color: #fff;
+      font-size: $font-size-small;
       background-color: $color-theme;
       border-radius: 3px;
-      font-size: $font-size-small;
-      color: #fff;
 
       &:after {
         content: "";
         position: absolute;
-        right: -10px;
         top: 50%;
+        right: -10px;
         border: {
           width: 5px;
-          style: solid;
           color: transparent transparent transparent $color-theme;
-        }
+
+          style: solid;
+        } ;
         transform: translateY(-50%);
       }
     }
@@ -411,8 +431,8 @@ body {
     align-items: flex-end;
     width: 100%;
     margin-top: 10px;
-    font-size: $font-size-small;
     color: $color-golden;
+    font-size: $font-size-small;
   }
 
   .information {
@@ -427,9 +447,9 @@ body {
 
   .details-btn {
     padding: 5px 10px;
+    color: $color-white;
     background: $color-theme;
     border-radius: $border-radius;
-    color: $color-white;
   }
 }
 
@@ -445,8 +465,8 @@ body {
 
 @keyframes move-dot {
   to {
-    opacity: 0;
     transform: translate3d(0, -80px, 0);
+    opacity: 0;
   }
 }
 
