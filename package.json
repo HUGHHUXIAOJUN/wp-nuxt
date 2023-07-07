@@ -27,6 +27,6 @@
     "node-sass": "^4.13.0",
     "nodemon": "^2.0.2",
     "sass-loader": "^8.0.0",
-    "stylelint": "^10.1.0"
+    "stylelint": "^15.10.1"
   }
 }
